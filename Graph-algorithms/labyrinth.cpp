@@ -71,10 +71,14 @@ int main() {
     }
     p = ex, q = ey;
     memset(level, -1, sizeof level);
+
     bfs();
+
     if(level[ex][ey] == -1) {cout << "NO\n"; return 0;}
+
     vector<pii> ans;
     ans.push_back({ex, ey});
+    
     for( ; ; ) {
         pii a = parent[{ex, ey}];
         int x = a.first, y = a.second;
@@ -82,23 +86,9 @@ int main() {
         if(grid[x][y] == 'A') break;
         ex = x, ey = y;
     }
+    
     reverse(ans.begin(), ans.end());
-
-    // for(pii x : ans) {
-    //     cout << grid[x.first][x.second] << ' ';
-    // }
-    // cout << '\n';
-
-    // for(int i = 0; i < n; i++) {
-    //     for(int j = 0; j < m; j++) {
-    //         if(level[i][j] >= 0) cout << ' ';
-    //         cout << level[i][j] << ' ';
-    //     }
-    //     cout << '\n';
-    // }
-
     cout << "YES\n" << level[p][q] << '\n';
-
     string path;
     for(int i = 1; i < (int)ans.size(); i++) {
         path.push_back(move(ans[i-1], ans[i]));

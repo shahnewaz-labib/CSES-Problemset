@@ -48,8 +48,7 @@ int main() {
     while(true) {
         if(v.back() == 1) break;
         v.push_back(parent[n]);
-        n = v.back();
-        
+        n = v.back();        
     }
     reverse(v.begin(), v.end());
     for(int x : v) cout << x << " "; cout << '\n';
