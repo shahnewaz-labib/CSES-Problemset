@@ -1,20 +1,20 @@
 #include "bits/stdc++.h"
+#define ll long long
 using namespace std;
- 
+
 int main() {
     int n, q;
     cin >> n >> q;
-    vector<long long> v(n+1, 0);
-    for(int i = 1; i <= n; i++) {
+
+    vector<ll> v(n + 1, 0);
+    for (int i = 1; i <= n; i++) {
         cin >> v[i];
-        v[i] += v[i-1];
+        v[i] += v[i - 1];
     }
-    // for(int x : v) cout << x << " ";
-    while(q--) {
+
+    while (q--) {
         int a, b;
         cin >> a >> b;
-        cout << v[b]-v[a-1] << '\n';
+        cout << v[b] - v[a - 1] << '\n';
     }
-    return 0;
- 
 }
